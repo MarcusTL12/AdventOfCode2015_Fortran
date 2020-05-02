@@ -3,4 +3,6 @@ gfortran *.o -o aoc2015
 
 rm *.o
 
+cp *.mod src/
+
 time ./aoc2015 $1 $2
