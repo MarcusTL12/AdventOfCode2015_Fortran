@@ -1,0 +1,3 @@
+[submodule "fortran_utils"]
+	path = fortran_utils
+	url = https://github.com/MarcusTL12/fortran_utils
