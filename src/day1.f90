@@ -1,6 +1,7 @@
 module day1_mod
     implicit none
     !
+    private
     public :: part1, part2
 contains
     subroutine part1()

@@ -1,6 +1,6 @@
 module day2_mod
     use astring_mod
-    use vec_str_ref_mod
+    use vec_str_mod
     use string_util_mod
     implicit none
     !
@@ -11,7 +11,7 @@ contains
         implicit none
         !
         character, intent(in) :: s(:)
-        type(vec_str_ref), intent(inout) :: buf
+        type(vec_str), intent(inout) :: buf
         integer :: i, get_dims(3)
         !
         call buf%clear()
@@ -26,7 +26,7 @@ contains
         implicit none
         !
         character, intent(in) :: s(:)
-        type(vec_str_ref), intent(inout) :: buf
+        type(vec_str), intent(inout) :: buf
         integer :: dims(3), areas(3), slack
         !
         dims = get_dims(s, buf)
@@ -57,7 +57,7 @@ contains
         implicit none
         !
         character, intent(in) :: s(:)
-        type(vec_str_ref), intent(inout) :: buf
+        type(vec_str), intent(inout) :: buf
         integer :: dims(3)
         !
         dims = get_dims(s, buf)
@@ -71,7 +71,7 @@ contains
         implicit none
         !
         type(astring) :: buf
-        type(vec_str_ref) :: splitbuf
+        type(vec_str) :: splitbuf
         integer :: ans
         !
         call buf%new()
@@ -95,7 +95,7 @@ contains
         implicit none
         !
         type(astring) :: buf
-        type(vec_str_ref) :: splitbuf
+        type(vec_str) :: splitbuf
         integer :: ans
         !
         call buf%new()
