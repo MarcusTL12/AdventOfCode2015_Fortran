@@ -162,7 +162,7 @@ contains
         type(astring) :: line
         type(map_str_int) :: m
         integer :: ans
-        
+        !
         call line%new()
         call m%new()
         !

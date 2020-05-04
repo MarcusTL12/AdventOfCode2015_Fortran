@@ -13,7 +13,7 @@ mod_cpy_dirs = [
 ]
 
 if len(args) >= 2:
-    optimize = args[1] == "O"
+    optimize = args[1] == "-O"
 else:
     optimize = False
 
@@ -78,6 +78,7 @@ else:
     command.extend(args[1:])
 
 # Running the binary
+print("Running...")
 t = time()
 subprocess.call(command)
 t = time() - t
