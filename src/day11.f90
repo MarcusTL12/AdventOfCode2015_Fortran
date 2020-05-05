@@ -1,5 +1,7 @@
 module day11_mod
     use vec_int_mod
+    use astring_mod
+    use astring_show_mod
     use string_util_mod
     implicit none
     !
@@ -25,15 +27,8 @@ contains
         implicit none
         !
         integer, intent(inout) :: pass(:)
-        logical :: a, b, c
         !
-        a = r1()
-        b = r2()
-        c = r3()
-        !
-        print *, a, b, c
-        !
-        is_valid = a .and. b .and. c
+        is_valid = r1() .and. r2() .and. r3()
     contains
         logical function r1()
             implicit none
@@ -74,7 +69,10 @@ contains
             a = .false.
             b = .false.
             do i = 1, size(pass) - 1
-                if (a) cycle
+                if (a) then
+                    a = .false.
+                    cycle
+                end if
                 if (pass(i) == pass(i + 1)) then
                     if (b) then
                         r3 = .true.
@@ -82,6 +80,7 @@ contains
                     else
                         b = .true.
                     end if
+                    a = .true.
                 end if
             end do
             r3 = .false.
@@ -92,24 +91,69 @@ contains
         implicit none
         !
         character, pointer :: a(:)
+        character, target :: c(8)
+        character :: d
+        type(astring) :: q
         integer, target :: b(8)
         type(vec_int) :: p
         integer :: i, j
         !
-        a => str_p("hijklmmn")
+        a => str_p("hepxcrrq")
         call p%from_buffer(b)
+        call q%from_buffer(c)
         !
         do i = size(a), 1, -1
             j = ichar(a(i)) - 97
             call p%push(j)
         end do
         !
-        call show(p)
+        do while (.not. is_valid(b))
+            call increment(b)
+        end do
+        !
+        do i = size(p), 1, -1
+            d = char(p%at(i) + 97)
+            call q%push(d)
+        end do
+        !
+        call show(q)
         print *
     end subroutine
     !
     subroutine part2()
         implicit none
         !
+        character, pointer :: a(:)
+        character, target :: c(8)
+        character :: d
+        type(astring) :: q
+        integer, target :: b(8)
+        type(vec_int) :: p
+        integer :: i, j
+        !
+        a => str_p("hepxcrrq")
+        call p%from_buffer(b)
+        call q%from_buffer(c)
+        !
+        do i = size(a), 1, -1
+            j = ichar(a(i)) - 97
+            call p%push(j)
+        end do
+        !
+        do while (.not. is_valid(b))
+            call increment(b)
+        end do
+        call increment(b)
+        do while (.not. is_valid(b))
+            call increment(b)
+        end do
+        !
+        do i = size(p), 1, -1
+            d = char(p%at(i) + 97)
+            call q%push(d)
+        end do
+        !
+        call show(q)
+        print *
     end subroutine
 end module
