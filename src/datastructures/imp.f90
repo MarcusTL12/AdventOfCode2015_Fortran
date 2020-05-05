@@ -35,3 +35,15 @@
 #define M_SHOW
 
 #include "../../fortran_utils/src/templates/hashmap.f90_template"
+
+
+! #define K_TYPE vec_str
+! #define K_ALIAS vec_str
+! #define K_MOD vec_str_mod
+
+! #define V_TYPE integer
+! #define V_ALIAS int
+
+! #define M_SHOW
+
+! #include "../../fortran_utils/src/templates/hashmap.f90_template"

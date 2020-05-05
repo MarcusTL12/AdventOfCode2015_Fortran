@@ -7,6 +7,7 @@ program main
     use day6_mod, only: d6a => part1, d6b => part2
     use day7_mod, only: d7a => part1, d7b => part2
     use day8_mod, only: d8a => part1, d8b => part2
+    use day9_mod, only: d9a => part1, d9b => part2
     implicit none
     !
     character(len=10) :: arg1, arg2
@@ -84,6 +85,15 @@ program main
             call d8a()
         case ('2')
             call d8b()
+        case default
+            print *, 'Not Implemented'
+        end select
+    case ('9')
+        select case (arg2)
+        case ('1')
+            call d9a()
+        case ('2')
+            call d9b()
         case default
             print *, 'Not Implemented'
         end select
