@@ -12,7 +12,7 @@ contains
         integer(1), intent(in) :: a(:)
         type(vec_int8), intent(inout) :: b
         integer(1) :: cur, amt
-        integer :: i, j
+        integer :: i
         !
         call b%clear()
         !
