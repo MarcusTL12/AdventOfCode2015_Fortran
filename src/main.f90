@@ -11,6 +11,7 @@ program main
     use day10_mod, only: d10a => part1, d10b => part2
     use day11_mod, only: d11a => part1, d11b => part2
     use day12_mod, only: d12a => part1, d12b => part2
+    use day13_mod, only: d13a => part1, d13b => part2
     implicit none
     !
     character(len=10) :: arg1, arg2
@@ -124,6 +125,15 @@ program main
             call d12a()
         case ('2')
             call d12b()
+        case default
+            print *, 'Not Implemented'
+        end select
+    case ('13')
+        select case (arg2)
+        case ('1')
+            call d13a()
+        case ('2')
+            call d13b()
         case default
             print *, 'Not Implemented'
         end select
