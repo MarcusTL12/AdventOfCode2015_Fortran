@@ -4,6 +4,8 @@ from time import time
 import os
 from shutil import copyfile
 
+fnr = 0
+
 args = sys.argv
 
 bin_name = "aoc2015"
@@ -19,11 +21,15 @@ else:
 
 
 def compile_file(f):
+    global fnr
     command = ["gfortran", "-cpp", "-c"]
     if optimize:
         command.append("-O3")
+    command.append("-o")
+    command.append(str(fnr) + ".o")
     command.append(f)
     subprocess.call(command)
+    fnr += 1
 
 
 def compile_dir(p):
