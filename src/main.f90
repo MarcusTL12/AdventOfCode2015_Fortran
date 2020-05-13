@@ -19,6 +19,7 @@ program main
     use day18_mod, only: d18a => part1, d18b => part2
     use day19_mod, only: d19a => part1, d19b => part2
     use day20_mod, only: d20a => part1, d20b => part2
+    use day21_mod, only: d21a => part1, d21b => part2
     implicit none
     !
     character(len=10) :: arg1, arg2
@@ -204,6 +205,15 @@ program main
             call d20a()
         case ('2')
             call d20b()
+        case default
+            print *, 'Not Implemented'
+        end select
+    case ('21')
+        select case (arg2)
+        case ('1')
+            call d21a()
+        case ('2')
+            call d21b()
         case default
             print *, 'Not Implemented'
         end select
